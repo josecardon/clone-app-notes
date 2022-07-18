@@ -16,6 +16,7 @@ public class NoteTransformer {
         noteDTO.setDateCreation(note.getDateCreation());
         noteDTO.setDateModification(note.getDateModification());
         noteDTO.setColor(note.getColor());
+        noteDTO.setChangesUpdate(note.getChangesUpdate());
 
         return noteDTO;
 
@@ -32,8 +33,7 @@ public class NoteTransformer {
         note.setDateCreation(noteDTO.getDateCreation());
         note.setDateModification(noteDTO.getDateModification());
         note.setColor(noteDTO.getColor());
-
+        note.setChangesUpdate(noteDTO.getChangesUpdate());
         return note;
-
     }
 }

@@ -25,18 +25,20 @@ public class Note implements Serializable {
 
     private Date dateModification;
 
+    private Integer changesUpdate;
 
     public Note() {
 
     }
 
-    public Note(Long noteId, String title, String description, String color, Date dateCreation, Date dateModification) {
+    public Note(Long noteId, String title, String description, String color, Date dateCreation, Date dateModification, Integer changesUpdate) {
         this.noteId = noteId;
         this.title = title;
         this.description = description;
         this.color = color;
         this.dateCreation = dateCreation;
         this.dateModification = dateModification;
+        this.changesUpdate = changesUpdate;
     }
 
     public Long getNoteId() {
@@ -85,5 +87,13 @@ public class Note implements Serializable {
 
     public void setDateModification(Date dateModification) {
         this.dateModification = dateModification;
+    }
+
+    public Integer getChangesUpdate() {
+        return changesUpdate;
+    }
+
+    public void setChangesUpdate(Integer changesUpdate) {
+        this.changesUpdate = changesUpdate;
     }
 }

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="d-flex justify-content-between mt-4">
+    <h2>
+      Notas
+    </h2>
+
+  </div>
+  <div class="content-search mt-2 w-100">
+    <app-search-note (setSearch)="getSearch($event)"></app-search-note>
+  </div>
+  <br>
+  <br>
+  <br>
+    <section *ngIf="noFound">
+      <div class="d-flex justify-content-center mt-4 mb-2">
+        <h2 class="text-center">No se ha encontrado el resultado</h2>
+
+      </div>
+    </section>
+    <section *ngIf="!noFound">
+      <app-list-notes [notes]="dataNote"  [search]="noFound" > </app-list-notes>
+    </section>
+</div>

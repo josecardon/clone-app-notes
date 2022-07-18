@@ -28,6 +28,11 @@ public class INoteServiceImp implements INoteService {
 
 
     @Override
+    public List<?> searchNote(String search) {
+        return (List<?>) repository.findByTitleContaining(search);
+    }
+
+    @Override
     public List<NoteDTO> listAll() {
         return (List<NoteDTO>) repository.findAll().stream().map(NoteTransformer::getNoteDTOFromNote).collect(Collectors.toList());
     }
@@ -36,15 +41,22 @@ public class INoteServiceImp implements INoteService {
     public Note createNote(NoteDTO noteDTO) {
         Note saveNote = new Note();
         Date date = new Date();
+        Integer count = null;
+
         if(noteDTO.getNoteId() != null) {
+
             Note getNote = repository.findByNoteId(noteDTO.getNoteId());
+            Integer totalCount = getNote.getChangesUpdate();
             saveNote.setNoteId(getNote.getNoteId());
             saveNote.setDateCreation(getNote.getDateCreation());
             saveNote.setTitle(noteDTO.getTitle());
             saveNote.setDateModification(date);
             saveNote.setColor(getNote.getColor());
+            saveNote.setChangesUpdate(totalCount + 1);
             saveNote.setDescription(getNote.getDescription());
         } else {
+            count = 0;
+            saveNote.setChangesUpdate(count);
             saveNote.setNoteId(noteDTO.getNoteId());
             saveNote.setDateCreation(date);
             saveNote.setTitle(noteDTO.getTitle());

@@ -28,6 +28,11 @@ public class NoteController {
         return ResponseEntity.status(200).body(noteService.listAll());
     }
 
+    @GetMapping(value = "/note-search")
+    public ResponseEntity<List<?>> searchNote(@RequestParam(value = "query") String note) {
+        return ResponseEntity.status(200).body(noteService.searchNote(note));
+    }
+
 
     @PostMapping(value = "/note")
     public ResponseEntity<Note> createNote(@RequestBody NoteDTO noteDTO) {
@@ -40,7 +45,7 @@ public class NoteController {
         return ResponseEntity.status(200).body(noteService.findByNote(id));
     }
 
-    @DeleteMapping(value = "/note")
+    @DeleteMapping(value = "/note-delete/{id}")
     public void deleteNote(@PathVariable Long id) {
         noteService.deleteNote(id);
     }

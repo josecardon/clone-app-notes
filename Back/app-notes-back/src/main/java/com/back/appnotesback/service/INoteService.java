@@ -14,4 +14,6 @@ public interface INoteService {
     public void deleteNote(Long note);
 
     public NoteDTO findByNote(Long note);
+
+    public List<?> searchNote(String search);
 }

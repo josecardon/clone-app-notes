@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-lg-4 col-sm-6">
+
+    <!--Add-->
+
+    <div class="note" [ngStyle]="{'background': changeColor}" *ngIf="!search">
+      <input [(ngModel)]="saveData.title" class="form-control mb-2" type="text">
+      <textarea [(ngModel)]="saveData.description" class="form-control mb-2" type="text"> </textarea>
+      <div class="text-center">
+        <ul>
+          <li class="color-item" (click)="getColor('#ef5350')" id="red"></li>
+          <li class="color-item" (click)="getColor('#4caf50')" id="green"></li>
+          <li class="color-item" (click)="getColor('#ffc107')" id="amber"></li>
+          <li class="color-item" (click)="getColor('#2196f3')" id="blue"></li>
+          <li class="color-item" (click)="getColor('#bdbdbd')" id="gray"></li>
+        </ul>
+      </div>
+
+      <div class="note-footer">
+        <small class="text-bold">
+          {{getDate | date}}
+        </small>
+
+        <i class="add" (click)="saveNote()">
+          <mat-icon class="delete-icon mt-1">add</mat-icon>
+        </i>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6" *ngFor="let note of notes">
+    <div class="note" [ngStyle]="{ 'background-color': note.color === null ? '#fef68a' : note.color}">
+      <h2>{{note.title}}</h2>
+      <span>
+        {{note.description}}
+      </span>
+      <div class="note-footer">
+        <div *ngIf="note.changesUpdate > 0">
+          <small class="text-bold">{{note.dateModification | date}}</small>
+        </div>
+
+        <div *ngIf="!note.changesUpdate > 0">
+          <small class="text-bold">{{note.dateCreation | date}}</small>
+        </div>
+        <div class="icons">
+
+        <i class="delete" (click)="deleteNote(note.noteId)">
+          <mat-icon class="delete-icon">delete</mat-icon>
+        </i>
+        <i class="delete" (click)="edit(note.noteId)">
+          <mat-icon class="delete-icon">edit</mat-icon>
+        </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

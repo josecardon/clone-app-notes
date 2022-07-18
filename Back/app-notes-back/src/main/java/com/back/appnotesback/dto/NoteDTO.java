@@ -17,6 +17,8 @@ public class NoteDTO implements Serializable {
 
     private Date dateModification;
 
+    private Integer changesUpdate;
+
     public Long getNoteId() {
         return noteId;
     }
@@ -43,6 +45,14 @@ public class NoteDTO implements Serializable {
 
     public String getDescription() {
         return description;
+    }
+
+    public Integer getChangesUpdate() {
+        return changesUpdate;
+    }
+
+    public void setChangesUpdate(Integer changesUpdate) {
+        this.changesUpdate = changesUpdate;
     }
 
     public void setDescription(String description) {
