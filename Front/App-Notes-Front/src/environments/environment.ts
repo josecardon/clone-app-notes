@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  END_POINT: 'http://localhost:8080/api',
+  //END_POINT: 'http://localhost:8080/api',
+  END_POINT: 'https://app-notes-back-jose.herokuapp.com/api'
 };
 
 /*

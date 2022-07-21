@@ -29,7 +29,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     CommonModule
   ],
   exports: [
-    MatIconModule
+    MatIconModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule { }

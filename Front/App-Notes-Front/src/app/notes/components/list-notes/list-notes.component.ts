@@ -17,7 +17,6 @@ export class ListNotesComponent implements OnInit {
   public changeColor: string = '#fef68a';
   public color: string = '#fef68a';
   public saveData: INote = {
-    noteId: 0,
     title: '',
     description: ''
   }
@@ -35,6 +34,7 @@ export class ListNotesComponent implements OnInit {
     if(this.saveData.title === '' && this.saveData.description === ''){
       return;
     } else {
+      debugger;
       const note: INote = {
         noteId: this.saveData.noteId,
         title: this.saveData.title,

@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   public dataNote: INote[] = [];
   public noFound: boolean = false;
 
+
   constructor(private noteService: NoteService) {}
 
   ngOnInit(): void {}
@@ -32,4 +33,5 @@ export class HomeComponent implements OnInit {
       });
     }
   }
+
 }

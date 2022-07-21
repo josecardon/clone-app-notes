@@ -4,8 +4,8 @@
     <!--Add-->
 
     <div class="note" [ngStyle]="{'background': changeColor}" *ngIf="!search">
-      <input [(ngModel)]="saveData.title" class="form-control mb-2" type="text">
-      <textarea [(ngModel)]="saveData.description" class="form-control mb-2" type="text"> </textarea>
+      <input placeholder="Escribe el titulo" [(ngModel)]="saveData.title" class="form-control mb-2" type="text">
+      <textarea placeholder="Escribe la descripción" [(ngModel)]="saveData.description" class="form-control mb-2" type="text"> </textarea>
       <div class="text-center">
         <ul>
           <li class="color-item" (click)="getColor('#ef5350')" id="red"></li>
@@ -21,9 +21,9 @@
           {{getDate | date}}
         </small>
 
-        <i class="add" (click)="saveNote()">
-          <mat-icon class="delete-icon mt-1">add</mat-icon>
-        </i>
+        <button class="add" (click)="saveNote()">
+          Agregar
+        </button>
       </div>
     </div>
   </div>
